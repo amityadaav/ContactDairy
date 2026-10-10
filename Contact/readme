@@ -1,0 +1,6 @@
+//Steps of creating project
+// server.js / app.js basic server creating
+// config/db.js database connection
+// .env - to secure sensitive info
+// Model/schema.js To design schema
+// 

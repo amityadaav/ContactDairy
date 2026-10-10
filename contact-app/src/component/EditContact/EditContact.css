@@ -1,0 +1,266 @@
+
+
+.edit-contact-page {
+  --edit-moss: #3f5142;
+  --edit-dark: #2c3b2f;
+  --edit-yellow: #f0dfa0;
+  --edit-ivory: #faf8ed;
+  --edit-paper: #fffef7;
+  --edit-text: #232a24;
+  --edit-muted: #778075;
+  --edit-border: #e3e5da;
+
+  min-height: 100vh;
+  padding: 35px 24px 60px;
+  background: var(--edit-ivory);
+  color: var(--edit-text);
+  font-family: "Instrument Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+.edit-contact-page *,
+.edit-contact-page *::before,
+.edit-contact-page *::after {
+  box-sizing: border-box;
+}
+
+/* Main form container */
+.edit-contact-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 30px auto;
+  padding: 34px;
+  border: 1px solid var(--edit-border);
+  border-radius: 8px;
+  background: var(--edit-paper);
+  box-shadow: 0 8px 24px rgba(35, 42, 36, 0.04);
+}
+
+/* Form heading */
+.edit-contact-form h1 {
+  margin: 0 0 10px;
+  color: var(--edit-text);
+  font-family: "Young Serif", serif;
+  font-size: clamp(30px, 4vw, 40px);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.edit-contact-form > p {
+  margin: 0 0 28px;
+  color: var(--edit-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Form fields grid */
+.edit-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
+}
+
+.edit-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  color: var(--edit-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Input fields */
+.edit-form-grid input:not([type="checkbox"]),
+.edit-form-grid textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid var(--edit-border);
+  border-radius: 5px;
+  outline: none;
+  background: #fffefb;
+  color: var(--edit-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.edit-form-grid input:not([type="checkbox"]) {
+  min-height: 44px;
+}
+
+.edit-form-grid input::placeholder,
+.edit-form-grid textarea::placeholder {
+  color: #9a9f94;
+}
+
+.edit-form-grid input:focus,
+.edit-form-grid textarea:focus {
+  border-color: var(--edit-moss);
+  background: #fffef7;
+  box-shadow: 0 0 0 3px rgba(63, 81, 66, 0.08);
+}
+
+.edit-form-grid textarea {
+  min-height: 115px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Full-width notes field */
+.edit-form-grid .edit-full-width {
+  grid-column: 1 / -1;
+}
+
+/* Favorite checkbox */
+.edit-form-grid .edit-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1 / -1;
+  color: var(--edit-moss);
+  cursor: pointer;
+}
+
+.edit-form-grid .edit-favorite input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--edit-moss);
+  cursor: pointer;
+}
+
+/* Form buttons */
+.edit-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 23px;
+  border-top: 1px solid var(--edit-border);
+}
+
+.edit-form-actions button,
+.edit-message button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 0 18px;
+  border: 1px solid var(--edit-moss);
+  border-radius: 5px;
+  background: var(--edit-moss);
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.edit-form-actions button:hover,
+.edit-message button:hover {
+  transform: translateY(-2px);
+  background: var(--edit-dark);
+}
+
+.edit-form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Cancel button */
+.edit-form-actions .edit-cancel-btn {
+  border-color: var(--edit-border);
+  background: #eeefe7;
+  color: var(--edit-dark);
+}
+
+.edit-form-actions .edit-cancel-btn:hover {
+  background: #e3e5da;
+}
+
+/* Error message */
+.edit-contact-form .edit-error {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid #f0d0cb;
+  border-radius: 5px;
+  background: #fff5f3;
+  color: #b42318;
+  font-size: 12px;
+}
+
+/* Loading and error screen */
+.edit-message {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 40px 20px;
+  background: var(--edit-ivory, #faf8ed);
+  color: var(--edit-muted, #778075);
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Keyboard accessibility */
+.edit-contact-page button:focus-visible,
+.edit-contact-page input:focus-visible,
+.edit-contact-page textarea:focus-visible {
+  outline: 2px solid var(--edit-moss);
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 600px) {
+  .edit-contact-page {
+    padding: 25px 14px 40px;
+  }
+
+  .edit-contact-form {
+    margin: 20px auto;
+    padding: 23px 18px;
+  }
+
+  .edit-form-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .edit-form-grid .edit-full-width,
+  .edit-form-grid .edit-favorite {
+    grid-column: auto;
+  }
+
+  .edit-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .edit-form-actions button {
+    width: 100%;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .edit-contact-page *,
+  .edit-contact-page *::before,
+  .edit-contact-page *::after {
+    transition: none !important;
+  }
+}
