@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -31,6 +30,7 @@ function Signup() {
     ConfirmPassword: "",
   });
 
+  // Handle all input fields
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -42,6 +42,7 @@ function Signup() {
     setError("");
   };
 
+  // Handle signup form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
@@ -83,6 +84,7 @@ function Signup() {
           Username: form.Username.trim(),
           Email: form.Email.trim(),
           Password: form.Password,
+          ConfirmPassword: form.ConfirmPassword,
         }),
       });
 
@@ -174,6 +176,7 @@ function Signup() {
             </div>
 
             <form className="signup-form" onSubmit={handleSubmit}>
+              {/* Username */}
               <div className="signup-field">
                 <label htmlFor="signup-name">Full name</label>
 
@@ -193,6 +196,7 @@ function Signup() {
                 </div>
               </div>
 
+              {/* Email */}
               <div className="signup-field">
                 <label htmlFor="signup-email">Email address</label>
 
@@ -211,6 +215,7 @@ function Signup() {
                 </div>
               </div>
 
+              {/* Password */}
               <div className="signup-field">
                 <label htmlFor="signup-password">Password</label>
 
@@ -232,9 +237,7 @@ function Signup() {
                     type="button"
                     className="signup-password-toggle"
                     onClick={() => setShowPassword((prev) => !prev)}
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                   >
                     {showPassword ? (
                       <EyeOff size={18} />
@@ -245,6 +248,7 @@ function Signup() {
                 </div>
               </div>
 
+              {/* Confirm Password */}
               <div className="signup-field">
                 <label htmlFor="signup-confirm-password">
                   Confirm password
@@ -284,12 +288,14 @@ function Signup() {
                 </div>
               </div>
 
+              {/* Error Message */}
               {error && (
                 <p className="signup-error" role="alert">
                   {error}
                 </p>
               )}
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="signup-submit"
@@ -313,6 +319,7 @@ function Signup() {
         </div>
       </section>
 
+      {/* Signup Success Modal */}
       {showSuccess && (
         <div className="signup-success-overlay">
           <div
